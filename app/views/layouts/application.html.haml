@@ -1,0 +1,12 @@
+!!!
+%html
+%head
+  %title Crabbit
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = csrf_meta_tags
+
+%body
+  - Category.all.each do |category|
+    = link_to category.name, tasks_path(category: category.name)
+  = yield
